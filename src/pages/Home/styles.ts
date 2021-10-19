@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Grid } from "@material-ui/core";
 
 export const Container = styled.div`
   padding: 15px;
@@ -67,10 +66,10 @@ export const DivInput = styled.div`
 `;
 
 export const FormInput = styled.input`
+  border-radius: 15px;
   text-align: center;
   font-weight: bold;
   font-size: 2rem;
-  border-radius: 15px;
   width: 220px;
   border: 0;
   outline: 0;
