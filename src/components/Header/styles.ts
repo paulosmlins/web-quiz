@@ -22,7 +22,9 @@ export const HeaderBoxTop = styled.div`
 `;
 
 export const HeaderBoxBottom = styled.div`
-  margin: 20px 0;
+  padding: 20px 0;
+  width: 100%;
+  border-top: 2px solid #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +48,7 @@ export const ReportIcon = styled(Assessment)`
 
 export const GitHubIcon = styled(GitHub)`
   color: var(--foreground);
-  padding: 10px;
+  padding: 5px;
   border-radius: 30px;
 
   :hover {
@@ -57,7 +59,7 @@ export const GitHubIcon = styled(GitHub)`
 
 export const LinkedinIcon = styled(LinkedIn)`
   color: var(--foreground);
-  padding: 10px;
+  padding: 5px;
   border-radius: 30px;
 
   :hover {

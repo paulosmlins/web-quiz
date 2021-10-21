@@ -21,10 +21,10 @@ const Header: React.FC = () => {
         </HeaderBoxTop>
         <HeaderBoxBottom>
           <a href="https://github.com/paulosmlins" target="_blank">
-            <GitHubIcon />
+            <GitHubIcon sx={{ fontSize: 15 }} />
           </a>
           <a href="https://www.linkedin.com/in/paulosmlins/" target="_blank">
-            <LinkedinIcon />
+            <LinkedinIcon sx={{ fontSize: 18 }} />
           </a>
         </HeaderBoxBottom>
       </Container>
