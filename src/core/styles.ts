@@ -4,5 +4,5 @@ export const Container = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
-  background-color: var(--background);
+  background-color: var(--forenground);
 `;

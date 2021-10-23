@@ -1,44 +1,35 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Container, ContainerBox, Buttons } from "./styles";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router";
 
-import QuizContext from "contexts/QuizContext";
+import Question from "types/Question";
+import { listQuestions } from "sevices/questions";
+import QuestionItem from "./components/Question";
 
-interface Question {
-  category: string;
-  difficulty: string;
-  question: string;
-  correct_answer: string;
-  incorrect_answers: string;
-}
+import { Container, QuestionGridContainer } from "./styles";
 
 const Questions: React.FC = () => {
-  const { state } = useContext(QuizContext);
   const [iQuestions, iSetQuestions] = useState<Question[]>([]);
-
-  const iGetQuestions = async () => {
-    const result: any = await axios.get(
-      `https://opentdb.com/api.php?amount=${state.value}`
-    );
-
-    iSetQuestions(result.data.results);
-    console.log(state);
-  };
+  const location = useLocation();
 
   useEffect(() => {
+    const iGetQuestions = async () => {
+      const query = new URLSearchParams(location.search);
+      const questions = await listQuestions(Number(query.get("q")));
+
+      iSetQuestions(questions);
+    };
+
     iGetQuestions();
-  }, []);
+  }, [location]);
 
   return (
-    <>
-      <Container>
-        <ContainerBox>
-          {iQuestions.map((ValueQuestion) => {
-            return <Buttons>{ValueQuestion.category || " "}</Buttons>;
-          })}
-        </ContainerBox>
-      </Container>
-    </>
+    <Container>
+      <QuestionGridContainer container>
+        {iQuestions.map((valueQuestion, index) => (
+          <QuestionItem key={index} question={valueQuestion} />
+        ))}
+      </QuestionGridContainer>
+    </Container>
   );
 };
 

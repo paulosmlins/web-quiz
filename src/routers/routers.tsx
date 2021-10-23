@@ -1,7 +1,4 @@
 import React from "react";
-import Home from "pages/Home";
-import ActionButtons from "pages/ActionButtons";
-import Questions from "pages/Questions";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,12 +6,22 @@ import {
   Redirect,
 } from "react-router-dom";
 
+import Home from "pages/Home";
+import ActionButtons from "pages/ActionButtons";
+import Questions from "pages/Questions";
+import Header from "components/Header";
+
 const App: React.FC = () => {
   return (
     <Router>
+      <Header />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/actionbuttons" component={ActionButtons} />
+        <Route
+          exact
+          path="/actionbuttons/questions"
+          component={ActionButtons}
+        />
         <Route exact path="/questions" component={Questions} />
         <Route path="*">
           <Redirect to="/404" />

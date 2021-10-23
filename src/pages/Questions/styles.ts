@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Grid } from "@material-ui/core";
 
 export const Container = styled.div`
   padding: 15px;
@@ -35,13 +36,6 @@ export const ContainerBox = styled.div`
   height: 100%;
 `;
 
-export const Buttons = styled.button`
-  font-size: 1.05rem;
-  font-weight: bold;
-  width: 200px;
-  border: 0;
-  border-radius: 10px;
-  color: var(--backgroundclear);
-  background-color: var(--foreground);
-  padding: 15px 30px;
+export const QuestionGridContainer = styled(Grid)`
+  gap: 10px 10px;
 `;
