@@ -37,5 +37,7 @@ export const ContainerBox = styled.div`
 `;
 
 export const QuestionGridContainer = styled(Grid)`
-  gap: 10px 10px;
+  gap: 50px 60px;
+  padding: 40px 0;
+  height: 60%;
 `;
