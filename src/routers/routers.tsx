@@ -18,8 +18,8 @@ const App: React.FC = () => {
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/actionbuttons" component={ActionButtons} />
-        <Route path="/questions" component={Questions} />
+        <Route exact path="/actionbuttons" component={ActionButtons} />
+        <Route exact path="/questions" component={Questions} />
         <Route exact path="/results" component={QuizResults} />
         <Route path="*">
           <Redirect to="/404" />

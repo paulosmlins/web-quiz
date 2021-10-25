@@ -21,12 +21,16 @@ import {
 const Home: React.FC = () => {
   const [value, setValue] = useState<string>("");
   const history = useHistory();
+  const correctScore = Number(localStorage.getItem("CorrectScore"));
+  const incorrectScore = Number(localStorage.getItem("IncorrectScore"));
 
   const searchSubmit = (e: any) => {
     if (value === "") {
       e.preventDefault();
       return false;
     } else {
+      localStorage.setItem("CorrectScore", String(correctScore));
+      localStorage.setItem("IncorrectScore", String(incorrectScore));
       history.push(`/actionbuttons?q=${value}`);
       localStorage.removeItem("questions");
       localStorage.removeItem("results");
@@ -42,11 +46,11 @@ const Home: React.FC = () => {
           <Counter>
             <BoxCorrectPoint>
               <p>Correct</p>
-              <span>{localStorage.getItem("CorrectScore")}</span>
+              <span>{localStorage.getItem("CorrectScore") || 0}</span>
             </BoxCorrectPoint>
             <BoxIncorrectPoint>
               <p>Incorrect</p>
-              <span>{localStorage.getItem("IncorrectScore")}</span>
+              <span>{localStorage.getItem("IncorrectScore") || 0}</span>
             </BoxIncorrectPoint>
           </Counter>
           <Form onSubmit={searchSubmit}>
