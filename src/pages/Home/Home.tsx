@@ -6,6 +6,9 @@ import logoIMG from "assets/Logo-WA.png";
 import {
   Container,
   ContainerBox,
+  Counter,
+  BoxCorrectPoint,
+  BoxIncorrectPoint,
   Form,
   FormLogo,
   FormTitle,
@@ -24,7 +27,9 @@ const Home: React.FC = () => {
       e.preventDefault();
       return false;
     } else {
-      history.push(`/actionbuttons/questions?q=${value}`);
+      history.push(`/actionbuttons?q=${value}`);
+      localStorage.removeItem("questions");
+      localStorage.removeItem("results");
       e.preventDefault();
       return false;
     }
@@ -34,6 +39,16 @@ const Home: React.FC = () => {
     <>
       <Container>
         <ContainerBox>
+          <Counter>
+            <BoxCorrectPoint>
+              <p>Correct</p>
+              <span>{localStorage.getItem("CorrectScore")}</span>
+            </BoxCorrectPoint>
+            <BoxIncorrectPoint>
+              <p>Incorrect</p>
+              <span>{localStorage.getItem("IncorrectScore")}</span>
+            </BoxIncorrectPoint>
+          </Counter>
           <Form onSubmit={searchSubmit}>
             <FormLogo src={logoIMG} />
             <FormTitle>Quantas perguntas deseja responder?</FormTitle>
@@ -42,7 +57,6 @@ const Home: React.FC = () => {
                 type="number"
                 min="1"
                 max="100"
-                placeholder="1"
                 onChange={(e) => setValue(e.target.value)}
               />{" "}
               <InfoInput>
