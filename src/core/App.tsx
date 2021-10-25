@@ -1,14 +1,17 @@
 import React from "react";
 
 import Routers from "routers/routers";
+import { QuizContextProvider } from "contexts/QuizContext";
 
 import { Container } from "./styles";
 
 const App: React.FC = () => {
   return (
-    <Container>
-      <Routers />
-    </Container>
+    <QuizContextProvider>
+      <Container>
+        <Routers />
+      </Container>
+    </QuizContextProvider>
   );
 };
 
