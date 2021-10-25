@@ -8,7 +8,6 @@ import {
   HeaderBoxTop,
   HeaderBoxBottom,
   Logo,
-  ReportIcon,
   GitHubIcon,
   LinkedinIcon,
 } from "./styles";
@@ -21,7 +20,6 @@ const Header: React.FC = () => {
           <Link to="/">
             <Logo src={logoIMG} />
           </Link>
-          <ReportIcon />
         </HeaderBoxTop>
         <HeaderBoxBottom>
           <a
