@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Assessment, GitHub, LinkedIn } from "@material-ui/icons";
+import { GitHub, LinkedIn } from "@material-ui/icons";
 
 export const Container = styled.div`
   width: 60px;
@@ -33,17 +33,6 @@ export const HeaderBoxBottom = styled.div`
 
 export const Logo = styled.img`
   height: 40px;
-`;
-
-export const ReportIcon = styled(Assessment)`
-  color: var(--foreground);
-  padding: 10px;
-  border-radius: 30px;
-
-  :hover {
-    color: var(--primary);
-    background-color: #0c0c0f;
-  }
 `;
 
 export const GitHubIcon = styled(GitHub)`
