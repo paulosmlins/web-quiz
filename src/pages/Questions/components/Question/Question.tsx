@@ -123,7 +123,7 @@ const Question: React.FC<IQuestionProps> = ({ question }) => {
   };
 
   return (
-    <QuestioneroGrid item xs={4} sm={4} md={4} padding={0}>
+    <QuestioneroGrid item xs={4} sm={4} md={4}>
       <Snackbar
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         open={open}
