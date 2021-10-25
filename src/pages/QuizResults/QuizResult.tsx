@@ -30,7 +30,7 @@ const QuizResult: React.FC = () => {
     localStorage.removeItem("questions");
     setUserAnswers([]);
     checkStorageResult();
-  }, []);
+  });
 
   return (
     <Container>
@@ -40,9 +40,10 @@ const QuizResult: React.FC = () => {
         justifyContent="center"
         alignItems="center"
       >
-        {listResult.map((result) => {
+        {listResult.map((result, index) => {
           return (
             <QuestionGrid
+              key={index}
               item
               xs={4}
               sm={4}

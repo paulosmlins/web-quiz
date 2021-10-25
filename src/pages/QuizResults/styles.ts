@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Grid } from "@material-ui/core";
-import { style } from "@material-ui/system";
 
 export const Container = styled.div`
   padding: 15px;

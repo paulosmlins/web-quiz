@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router";
 import { Snackbar, Alert, AlertProps, AlertColor } from "@material-ui/core";
 
 import QuestionType from "types/Question";
@@ -15,7 +16,6 @@ import {
   RadioGroupQuestion,
   RadioQuestion,
 } from "./styles";
-import { useHistory, useLocation } from "react-router";
 
 interface IQuestionProps {
   question: QuestionType;

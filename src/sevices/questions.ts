@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import Question from "types/Question";
 
 export const listQuestions = async (count: number): Promise<Question[]> => {
