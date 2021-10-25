@@ -27,7 +27,7 @@ const Questions: React.FC = () => {
     <Container>
       <QuestionGridContainer
         container
-        columns={{ xs: 5, sm: 5, md: 11 }}
+        columns={{ xs: 3, sm: 5, md: 11 }}
         justifyContent="center"
         alignItems="center"
       >
