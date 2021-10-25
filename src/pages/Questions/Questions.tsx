@@ -8,24 +8,30 @@ import QuestionItem from "./components/Question";
 import { Container, QuestionGridContainer } from "./styles";
 
 const Questions: React.FC = () => {
-  const [iQuestions, iSetQuestions] = useState<Question[]>([]);
+  const [itemQuestions, itemSetQuestions] = useState<Question[]>([]);
   const location = useLocation();
 
   useEffect(() => {
-    const iGetQuestions = async () => {
+    const itemGetQuestions = async () => {
       const query = new URLSearchParams(location.search);
       const questions = await listQuestions(Number(query.get("q")));
 
-      iSetQuestions(questions);
+      localStorage.setItem("questions", JSON.stringify(questions));
+      itemSetQuestions(questions);
     };
 
-    iGetQuestions();
+    itemGetQuestions();
   }, [location]);
 
   return (
     <Container>
-      <QuestionGridContainer container>
-        {iQuestions.map((valueQuestion, index) => (
+      <QuestionGridContainer
+        container
+        columns={{ xs: 4, sm: 8, md: 12 }}
+        justifyContent="center"
+        alignItems="center"
+      >
+        {itemQuestions.map((valueQuestion, index) => (
           <QuestionItem key={index} question={valueQuestion} />
         ))}
       </QuestionGridContainer>
