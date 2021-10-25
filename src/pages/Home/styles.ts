@@ -7,6 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   border-radius: 20px;
   overflow-y: scroll;
 
@@ -28,9 +29,45 @@ export const Container = styled.div`
 export const ContainerBox = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
+  gap: 50px 0;
   margin: 0 auto;
   height: 100%;
+`;
+
+export const Counter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+  span {
+    font-weight: bold;
+    font-size: 4rem;
+    color: var(--foreground);
+  }
+
+  p {
+    padding-top: 15px;
+    margin: 0;
+    font-weight: bold;
+    color: var(--foreground);
+  }
+`;
+
+export const BoxCorrectPoint = styled.div`
+  width: 100px;
+  border-radius: 15px 0 0 15px;
+  padding: 10px 10px;
+  background-color: var(--backgroundclear);
+`;
+
+export const BoxIncorrectPoint = styled.div`
+  width: 100px;
+  border-radius: 0 15px 15px 0;
+  padding: 10px 10px;
+  background-color: var(--backgroundclear);
 `;
 
 export const Form = styled.form`

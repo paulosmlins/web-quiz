@@ -1,38 +1,24 @@
-import { createContext, useState } from "react";
+import { createContext, Dispatch, useState } from "react";
+import Answer from "types/Answer";
 
-interface QuizType {
-  value: string;
+interface QuizData {
+  userAnswers: Answer[];
+  setUserAnswers: Dispatch<Answer[]>;
 }
 
-interface QuizProps {
-  state: QuizType;
-  setState: React.Dispatch<React.SetStateAction<QuizType>>;
-}
+export const QuizContext = createContext({} as QuizData);
 
-const DefaultValue = {
-  state: {
-    value: "",
-  },
-  setState: () => {},
-};
-
-const ContextData = createContext<QuizProps>(DefaultValue);
-
-const ContextValue: React.FC = ({ children }) => {
-  const [state, setState] = useState(DefaultValue.state);
+export const QuizContextProvider: React.FC = ({ children }) => {
+  const [userAnswers, setUserAnswers] = useState<Answer[]>([]);
 
   return (
-    <ContextData.Provider
+    <QuizContext.Provider
       value={{
-        state,
-        setState,
+        userAnswers,
+        setUserAnswers,
       }}
     >
       {children}
-    </ContextData.Provider>
+    </QuizContext.Provider>
   );
 };
-
-export { ContextValue };
-
-export default ContextData;

@@ -1,7 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router";
+
+import logoIMG from "assets/Logo-WA.png";
+
 import {
   Container,
   ContainerBox,
+  Counter,
+  BoxCorrectPoint,
+  BoxIncorrectPoint,
   Form,
   FormLogo,
   FormTitle,
@@ -10,31 +17,38 @@ import {
   InfoInput,
   FormButton,
 } from "./styles";
-import logoIMG from "assets/Logo-WA.png";
-
-import QuizContext from "contexts/QuizContext";
 
 const Home: React.FC = () => {
   const [value, setValue] = useState<string>("");
-
-  const { state, setState } = useContext(QuizContext);
+  const history = useHistory();
 
   const searchSubmit = (e: any) => {
     if (value === "") {
       e.preventDefault();
       return false;
     } else {
-      setState({ value });
-      window.location.href = `/questions`;
-      console.log(state);
+      history.push(`/actionbuttons?q=${value}`);
+      localStorage.removeItem("questions");
+      localStorage.removeItem("results");
       e.preventDefault();
       return false;
     }
   };
+
   return (
     <>
       <Container>
         <ContainerBox>
+          <Counter>
+            <BoxCorrectPoint>
+              <p>Correct</p>
+              <span>{localStorage.getItem("CorrectScore")}</span>
+            </BoxCorrectPoint>
+            <BoxIncorrectPoint>
+              <p>Incorrect</p>
+              <span>{localStorage.getItem("IncorrectScore")}</span>
+            </BoxIncorrectPoint>
+          </Counter>
           <Form onSubmit={searchSubmit}>
             <FormLogo src={logoIMG} />
             <FormTitle>Quantas perguntas deseja responder?</FormTitle>
@@ -43,7 +57,6 @@ const Home: React.FC = () => {
                 type="number"
                 min="1"
                 max="100"
-                placeholder="1"
                 onChange={(e) => setValue(e.target.value)}
               />{" "}
               <InfoInput>

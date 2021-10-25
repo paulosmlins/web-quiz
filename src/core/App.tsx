@@ -1,19 +1,17 @@
-import React, { useContext } from "react";
-import Routers from "routers/routers";
-import Header from "components/Header";
+import React from "react";
 
-import GlobalContext from "contexts";
+import Routers from "routers/routers";
+import { QuizContextProvider } from "contexts/QuizContext";
 
 import { Container } from "./styles";
 
 const App: React.FC = () => {
   return (
-    <Container>
-      <Header />
-      <GlobalContext>
+    <QuizContextProvider>
+      <Container>
         <Routers />
-      </GlobalContext>
-    </Container>
+      </Container>
+    </QuizContextProvider>
   );
 };
 
