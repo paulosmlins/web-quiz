@@ -108,13 +108,17 @@ const Question: React.FC<IQuestionProps> = ({ question }) => {
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    saveInQuizContext();
-    checkAnswers();
-
-    if (userAnswers.length === Number(query.get("q")) - 1) {
-      history.push("/results");
-      return;
+    if (value === "") {
+      event.preventDefault();
+      return false;
+    } else {
+      event.preventDefault();
+      saveInQuizContext();
+      checkAnswers();
+      if (userAnswers.length === Number(query.get("q")) - 1) {
+        history.push("/results");
+        return;
+      }
     }
   };
 
